@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import promise from 'bluebird';
+const mongoose = require('mongoose');
+const promise = require('bluebird');
 
 mongoose.Promise = promise;
 
