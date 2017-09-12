@@ -15,8 +15,6 @@ server.pre(restify.CORS({'origins': ['*']}));
 
 require('./src/Http/Routers/User')(server);
 
-server.listen(8000, () => {
+server.listen(8000);
 
-});
-
-export default server;
+module.exports = server;
