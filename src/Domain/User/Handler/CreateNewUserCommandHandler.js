@@ -9,12 +9,11 @@ export class CreateNewUserCommandHandler {
 
         return new Promise((resolve, reject) => {
             if (command instanceof CreateNewUserCommand) {
-                try {
-                    const createdUser = this.createUser();
-                    resolve(createdUser);
-                } catch (exception) {
-                    throw CanNotCreateUserException(exception);
-                }
+                this.createUser().then((created) => {
+                    resolve(created);
+                }).catch((errCreated) => {
+                    reject(new CanNotCreateUserException(errCreated));
+                });
             } else {
                 reject(new InvalidException('command must be instanceof CreateNewUserCommand!'));
             }
@@ -23,10 +22,10 @@ export class CreateNewUserCommandHandler {
 
     createUser() {
         return UserDB.create({
-            name: this.command.name,
-            birthDate: this.command.birthDate,
-            address: this.command.address,
-            phone: this.command.phone
+            name: this.command.userData.name,
+            birthDate: this.command.userData.birthDate,
+            address: this.command.userData.address,
+            phone: this.command.userData.phone
         });
     }
 }
