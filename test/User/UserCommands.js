@@ -2,7 +2,6 @@ import assert from 'assert';
 import {describe, it} from 'mocha';
 import {User} from "../../src/Domain/User/Model/User";
 import {DeleteUserCommand} from "../../src/Domain/User/Command/DeleteUserCommand";
-import {InvalidException} from "../../src/Domain/User/Exception/InvalidException";
 import {UpdateUserCommand} from "../../src/Domain/User/Command/UpdateUserCommand";
 import {CreateNewUserCommand} from "../../src/Domain/User/Command/CreateNewUserCommand";
 
