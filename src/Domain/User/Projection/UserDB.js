@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from './../../../../config/datasource';
 
 const Schema = mongoose.Schema;
 
@@ -8,7 +8,7 @@ let userDB = new Schema({
         required: true
     },
     birthDate: {
-        type: Date,
+        type: String,
         required: true
     },
     address: {
