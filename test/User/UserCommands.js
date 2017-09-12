@@ -1,27 +1,21 @@
 import assert from 'assert';
 import {describe, it} from 'mocha';
 import {User} from "../../src/Domain/User/Model/User";
-import {InvalidException} from "../../src/Domain/User/Exception/InvalidException";
-import {CreateNewUserCommand} from "../../src/Domain/User/Command/CreateNewUserCommand";
 import {DeleteUserCommand} from "../../src/Domain/User/Command/DeleteUserCommand";
+import {InvalidException} from "../../src/Domain/User/Exception/InvalidException";
 import {UpdateUserCommand} from "../../src/Domain/User/Command/UpdateUserCommand";
+import {CreateNewUserCommand} from "../../src/Domain/User/Command/CreateNewUserCommand";
 
 describe('User Command Test', () => {
     describe('Create new user command test', () => {
         it('Should return a user object data', () => {
-            let dummy = {
-                name: 'Muhammad Harits Syaifulloh',
-                birthDate: '1997-04-21',
-                address: 'Malang',
-                phone: '08123456789'
-            };
+            let dummy = new User('Muhammad Harits Syaifulloh', '2017-04-21', 'Malang', '08123456789');
+            let data = new CreateNewUserCommand(dummy);
 
-            let data = new CreateNewUserCommand(new User(dummy.name, dummy.birthDate, dummy.address, dummy.phone));
-
-            assert.equal(dummy, data);
+            assert.equal(dummy, data.userData);
         });
 
-        it('Should throw an InvalidException if data is not instanceof User', () => {
+        it('Should throw an error if data is not instanceof User', () => {
             let dummy = {
                 name: 'Muhammad Harits Syaifulloh',
                 birthDate: '1997-04-21',
@@ -31,7 +25,7 @@ describe('User Command Test', () => {
 
             assert.throws(() => {
                 new CreateNewUserCommand(dummy);
-            }, InvalidException, 'userData must be implemented from User class!');
+            }, Error, 'userData must be implemented from User class!');
         });
     });
 
@@ -43,10 +37,10 @@ describe('User Command Test', () => {
             assert.equal(command.userId, userId);
         });
 
-        it('Should throw InvalidException if userId is not a string', () => {
+        it('Should throw an error if userId is not a string', () => {
             assert.throws(() => {
                 new DeleteUserCommand(99);
-            }, InvalidException, 'UserId must be a string!');
+            }, Error, 'UserId must be a string!');
         });
     });
 
@@ -79,7 +73,7 @@ describe('User Command Test', () => {
 
             assert.throws(() => {
                 new UpdateUserCommand(userId, data);
-            }, InvalidException, 'data must be implemented from User class!');
+            }, Error, 'data must be implemented from User class!');
         });
     });
 });
