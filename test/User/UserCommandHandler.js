@@ -5,6 +5,7 @@ import {User} from "../../src/Domain/User/Model/User";
 import {DeleteUserCommand} from "../../src/Domain/User/Command/DeleteUserCommand";
 import {CreateNewUserCommand} from "../../src/Domain/User/Command/CreateNewUserCommand";
 import {CreateNewUserCommandHandler} from "../../src/Domain/User/Handler/CreateNewUserCommandHandler";
+import {DeleteUserCommandHandler} from "../../src/Domain/User/Handler/DeleteUserCommandHandler";
 
 const director = require('director.js');
 const promiseBus = director();
@@ -83,6 +84,34 @@ describe('User Command Handler Test', () => {
             it('Should have an error message', (done) => {
                 assert.notEqual(null, error.message);
                 done();
+            });
+        });
+    });
+
+    describe('Delete user command handler test', () => {
+        function deleteUser(command, userId) {
+            command.prototype.ID = 'deleteUserCommand';
+
+            promiseBus.registry.register(command.prototype.ID, new DeleteUserCommandHandler());
+            const bus = new Decorator(promiseBus);
+
+            return bus.handle(new command(userId));
+        }
+
+        describe('Success delete user', () => {
+            let userId = 'This is userId';
+
+            let deleted;
+
+            before((done) => {
+                deleteUser(DeleteUserCommand, userId).then(function (response) {
+                    deleted = response;
+                    done();
+                });
+            });
+
+            it('Should return deleted user', (done) => {
+
             });
         });
     });
