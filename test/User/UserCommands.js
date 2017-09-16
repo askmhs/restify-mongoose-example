@@ -8,10 +8,10 @@ import {CreateNewUserCommand} from "../../src/Domain/User/Command/CreateNewUserC
 describe('User Command Test', () => {
     describe('Create new user command test', () => {
         it('Should return a user object data', () => {
-            let dummy = new User('Muhammad Harits Syaifulloh', '2017-04-21', 'Malang', '08123456789');
-            let data = new CreateNewUserCommand(dummy);
+            const dummy = new User('Muhammad Harits Syaifulloh', '2017-04-21', 'Malang', '08123456789');
+            const command = new CreateNewUserCommand(dummy);
 
-            assert.equal(dummy, data.userData);
+            assert.equal(dummy, command.userData);
         });
 
         it('Should throw an error if data is not instanceof User', () => {
@@ -24,14 +24,14 @@ describe('User Command Test', () => {
 
             assert.throws(() => {
                 new CreateNewUserCommand(dummy);
-            }, Error, 'userData must be implemented from User class!');
+            }, Error, 'userData must be instanceof User class!');
         });
     });
 
     describe('Delete user command test', () => {
         it('Should return object of uerId', () => {
             const userId = 'This is userId';
-            let command = new DeleteUserCommand(userId);
+            const command = new DeleteUserCommand(userId);
 
             assert.equal(command.userId, userId);
         });
@@ -61,6 +61,15 @@ describe('User Command Test', () => {
             assert.equal(data, command.data);
         });
 
+        it('Should throw an error if userId is not a string', () => {
+            const userId = 1234;
+            const data = new User('Muhammad Harits Syaifulloh', '2017-04-21', 'Malang', '08123456789');
+
+            assert.throws(() => {
+                new UpdateUserCommand(userId, data);
+            }, Error, 'userId must be a string!');
+        });
+
         it('Should throw an error if data is not instanceof User class', () => {
             const userId = 'This is userId';
             const data = {
@@ -72,7 +81,7 @@ describe('User Command Test', () => {
 
             assert.throws(() => {
                 new UpdateUserCommand(userId, data);
-            }, Error, 'data must be implemented from User class!');
+            }, Error, 'data must be instanceof User class!');
         });
     });
 });
