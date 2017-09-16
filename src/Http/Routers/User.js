@@ -29,13 +29,7 @@ module.exports = (server) => {
         bus.handle(new CreateNewUserCommand(data)).then((created) => {
             SuccessResponse(res, 'User created!', created);
         }).catch((errCreated) => {
-            if (errCreated instanceof InvalidException) {
-                BadRequestResponse(res, errCreated.message);
-            } else if (errCreated instanceof CanNotCreateUserException) {
-                InternalServerErrorResponse(res, errCreated.message);
-            } else {
-                InternalServerErrorResponse(res, errCreated);
-            }
+            InternalServerErrorResponse(res, errCreated);
         });
     });
 
@@ -48,13 +42,7 @@ module.exports = (server) => {
         bus.handle(new UpdateUserCommand()).then((updated) => {
             SuccessResponse(res, 'Successfully update user!', updated);
         }).catch((errUpdated) => {
-            if (errUpdated instanceof InvalidException) {
-                BadRequestResponse(res, errUpdated.message);
-            } else if (errUpdated instanceof CanNotUpdateUserException) {
-                InternalServerErrorResponse(res, errUpdated.message);
-            } else {
-                InternalServerErrorResponse(res, errUpdated);
-            }
+            InternalServerErrorResponse(res, errUpdated);
         });
     });
 
@@ -67,13 +55,7 @@ module.exports = (server) => {
         bus.handle(new DeleteUserCommand(req.params.userId)).then((result) => {
             SuccessResponse(res, 'Successfully deleted user!', result);
         }).catch((errResult) => {
-            if (errResult instanceof InvalidException) {
-                BadRequestResponse(req, errResult.message);
-            } else if (errResult instanceof CanNotDeleteUserException) {
-                InternalServerErrorResponse(res, errResult.message);
-            } else {
-                InternalServerErrorResponse(res, errResult);
-            }
+            InternalServerErrorResponse(res, errResult);
         });
     });
 };
