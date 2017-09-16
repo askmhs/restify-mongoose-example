@@ -12,7 +12,7 @@ export class CreateNewUserCommandHandler {
                 this.createUser().then((created) => {
                     resolve(created);
                 }).catch((errCreated) => {
-                    reject(new CanNotCreateUserException(errCreated));
+                    reject(new CanNotCreateUserException(errCreated.message));
                 });
             } else {
                 reject(new InvalidException('command must be instanceof CreateNewUserCommand!'));
