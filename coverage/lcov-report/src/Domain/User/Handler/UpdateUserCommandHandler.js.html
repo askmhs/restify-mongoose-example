@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/Domain/User/Handler/CreateNewUserCommandHandler.js</title>
+    <title>Code coverage report for src/Domain/User/Handler/UpdateUserCommandHandler.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../../index.html">All files</a> / <a href="index.html">src/Domain/User/Handler</a> CreateNewUserCommandHandler.js
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/Domain/User/Handler</a> UpdateUserCommandHandler.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>11/11</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>11/11</span>
       </div>
     </div>
   </div>
@@ -73,16 +73,26 @@
 28
 29
 30
-31</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+31
+32
+33
+34
+35
+36
+37
+38</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -93,44 +103,55 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import UserDB from './../Projection/UserDB';
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as _ from "lodash";
+import UserDB from "../Projection/UserDB";
+import {UpdateUserCommand} from "../Command/UpdateUserCommand";
 import {InvalidException} from "../Exception/InvalidException";
-import {CreateNewUserCommand} from "../Command/CreateNewUserCommand";
-import {CanNotCreateUserException} from "../Exception/CanNotCreateUserException";
+import {NotFoundException} from "../Exception/NotFoundException";
+import {CanNotUpdateUserException} from "../Exception/CanNotUpdateUserException";
 &nbsp;
-export class CreateNewUserCommandHandler {
+export class UpdateUserCommandHandler {
     execute(command) {
-        this.command = command;
-&nbsp;
         return new Promise((resolve, reject) =&gt; {
-            if (command instanceof CreateNewUserCommand) {
-                this.createUser().then((created) =&gt; {
-                    resolve(created);
-                }).catch((errCreated) =&gt; {
-                    reject(new CanNotCreateUserException(errCreated.message));
+            if (command instanceof UpdateUserCommand) {
+                this.command = command;
+&nbsp;
+                this.updateUser().then((updated) =&gt; {
+                    if (updated !== null) {
+                        resolve(updated);
+                    } else {
+                        reject(new NotFoundException('Couldn\'t find any user with id ' + command.userId));
+                    }
+                }).catch((errUpdated) =&gt; {
+                    reject(new CanNotUpdateUserException(errUpdated.message));
                 });
             } else {
-                reject(new InvalidException('command must be instanceof CreateNewUserCommand!'));
+                reject(new InvalidException('command must be instanceof UpdateUserCommand!'));
             }
         });
     }
 &nbsp;
-    createUser() {
-        return UserDB.create({
-            name: this.command.userData.name,
-            birthDate: this.command.userData.birthDate,
-            address: this.command.userData.address,
-            phone: this.command.userData.phone
+    updateUser() {
+        this.command.data = _.pickBy(this.command.data, _.identity);
+&nbsp;
+        return UserDB.findByIdAndUpdate(this.command.userId, {
+            $set: this.command.data
+        }, {
+            new: true
         });
     }
 }</pre></td></tr>
