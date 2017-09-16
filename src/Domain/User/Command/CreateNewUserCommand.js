@@ -6,7 +6,7 @@ export class CreateNewUserCommand {
         if (userData instanceof User) {
             this.userData = userData;
         } else {
-            throw new InvalidException('userData must be implemented from User class!');
+            throw new InvalidException('userData must be instanceof User class!');
         }
     }
 }
