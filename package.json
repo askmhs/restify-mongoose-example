@@ -34,6 +34,7 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "director.js": "^1.2.0",
+    "lodash": "^4.17.4",
     "mongoose": "^4.11.11",
     "restify": "^5.2.0"
   }
