@@ -18,10 +18,6 @@ module.exports = (server) => {
     const director = require('director.js');
     const promiseBus = director();
 
-    server.get('/', (req, res) => {
-        SuccessResponse(res, 'Server Up!', 'Server Up!');
-    });
-
     server.post('/user/create', (req, res) => {
         CreateNewUserCommand.prototype.ID = 'createNewUserCommand';
 
