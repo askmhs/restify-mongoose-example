@@ -1,8 +1,8 @@
 export class User {
-    constructor(_name, _birthDate, _address, _phone) {
-        this.name = _name;
-        this.birthDate = _birthDate;
-        this.address = _address;
-        this.phone = _phone;
+    constructor(name, birthDate, address, phone) {
+        this.name = name;
+        this.birthDate = birthDate;
+        this.address = address;
+        this.phone = phone;
     }
 }
