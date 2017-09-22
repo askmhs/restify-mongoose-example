@@ -13,6 +13,9 @@ const director = require('director.js');
 const promiseBus = director();
 
 describe('User Command Handler Test', () => {
+
+    let userId;
+
     /**
      * Create new user command handler test
      */
@@ -37,6 +40,7 @@ describe('User Command Handler Test', () => {
 
                 createUser(CreateNewUserCommand, data).then((created) => {
                     createdData = created;
+                    userId = created._id;
                     done();
                 });
             });
@@ -103,7 +107,7 @@ describe('User Command Handler Test', () => {
     /**
      * Delete user command handler test
      */
-    describe('Delete user command handler test', () => {
+    describe('Delete user command handler test', (done) => {
         function deleteUser(command, userId) {
             command.prototype.ID = 'deleteUserCommand';
 
@@ -117,9 +121,8 @@ describe('User Command Handler Test', () => {
          * Success delete user
          */
         describe('Success delete user', () => {
-            let userId = '59bc994e48647c03a746f082';
-
             let deleted;
+            let userId = "59c4ef1fc13169180294a9fa";
 
             before((done) => {
                 deleteUser(DeleteUserCommand, userId).then(function (response) {
@@ -216,7 +219,7 @@ describe('User Command Handler Test', () => {
                 assert.equal('string', typeof error.message);
                 done();
             });
-        })
+        });
     });
 
     /**
