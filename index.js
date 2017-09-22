@@ -8,9 +8,6 @@ server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
-// restify.CORS.ALLOW_HEADERS.push();
-// server.pre(restify.CORS({'origins': ['*']}));
-
 require('./src/Http/Routers/User')(server);
 
 server.listen(8000, function() {
