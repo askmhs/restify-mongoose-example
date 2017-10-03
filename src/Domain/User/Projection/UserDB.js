@@ -19,6 +19,10 @@ let userDB = new Schema({
         type: String,
         required: true
     },
+    jurusan: {
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now

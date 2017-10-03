@@ -21,11 +21,6 @@ export class CreateNewUserCommandHandler {
     }
 
     createUser() {
-        return UserDB.create({
-            name: this.command.userData.name,
-            birthDate: this.command.userData.birthDate,
-            address: this.command.userData.address,
-            phone: this.command.userData.phone
-        });
+        return UserDB.create(this.command.userData);
     }
 }
