@@ -1,3 +1,8 @@
+/**
+ * Internal Server Error Response
+ * @param res
+ * @param message
+ */
 export default (res, message) => {
     res.status(500);
     res.json({
