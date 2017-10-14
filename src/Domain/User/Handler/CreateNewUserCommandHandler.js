@@ -4,7 +4,15 @@ import {CreateNewUserCommand} from "../Command/CreateNewUserCommand";
 import {CanNotCreateUserException} from "../Exception/CanNotCreateUserException";
 
 export class CreateNewUserCommandHandler {
+    /**
+     * Executing command
+     * @param command
+     * @returns {Promise}
+     */
     execute(command) {
+        /**
+         * Assign command
+         */
         this.command = command;
 
         return new Promise((resolve, reject) => {
@@ -20,6 +28,9 @@ export class CreateNewUserCommandHandler {
         });
     }
 
+    /**
+     * Store user to DB
+     */
     createUser() {
         return UserDB.create(this.command.userData);
     }
