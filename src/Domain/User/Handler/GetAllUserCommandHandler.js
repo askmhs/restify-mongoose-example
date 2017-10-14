@@ -6,7 +6,7 @@ export class GetAllUserCommandHandler {
             UserDB.find().populate({
                 path: 'jurusan', // Foreign key
                 model: 'Jurusan', // Collection name
-                select: 'name' // Which column will be displayed
+                select: 'name + createdAt' // Which column will be displayed
             }).lean().then((users) => {
                 resolve(users);
             }).catch((errUsers) => {

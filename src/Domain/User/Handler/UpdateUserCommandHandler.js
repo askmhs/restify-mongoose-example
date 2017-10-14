@@ -27,6 +27,10 @@ export class UpdateUserCommandHandler {
     }
 
     updateUser() {
+        /**
+         * Remove keys with null value inside the object
+         * @type {{}|*}
+         */
         this.command.data = _.pickBy(this.command.data, _.identity);
 
         return UserDB.findByIdAndUpdate(this.command.userId, {
