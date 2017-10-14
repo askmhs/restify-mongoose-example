@@ -5,10 +5,10 @@ import {DeleteUserCommand} from "../../Domain/User/Command/DeleteUserCommand";
 import {UpdateUserCommand} from "../../Domain/User/Command/UpdateUserCommand";
 import {CreateNewUserCommand} from "../../Domain/User/Command/CreateNewUserCommand";
 import InternalServerErrorResponse from './../Responses/InternalServerErrorResponse';
-import {DeleteUserCommandHandler} from "../../Domain/User/Handler/DeleteUserCommandHandler";
-import {CreateNewUserCommandHandler} from "../../Domain/User/Handler/CreateNewUserCommandHandler";
 import {UpdateUserCommandHandler} from "../../Domain/User/Handler/UpdateUserCommandHandler";
 import {GetAllUserCommandHandler} from "../../Domain/User/Handler/GetAllUserCommandHandler";
+import {DeleteUserCommandHandler} from "../../Domain/User/Handler/DeleteUserCommandHandler";
+import {CreateNewUserCommandHandler} from "../../Domain/User/Handler/CreateNewUserCommandHandler";
 
 module.exports = (server) => {
 
