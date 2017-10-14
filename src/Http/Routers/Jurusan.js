@@ -1,9 +1,9 @@
 import {Decorator} from "../../Domain/Decorator";
 import SuccessResponse from "../Responses/SuccessResponse";
+import {Jurusan} from "../../Domain/Jurusan/Model/Jurusan";
 import InternalServerErrorResponse from "../Responses/InternalServerErrorResponse";
 import {CreateNewJurusanCommand} from "../../Domain/Jurusan/Command/CreateNewJurusanCommand";
 import {CreateNewJurusanCommandHandler} from "../../Domain/Jurusan/Handler/CreateNewJurusanCommandHandler";
-import {Jurusan} from "../../Domain/Jurusan/Model/Jurusan";
 
 module.exports = function (server) {
     const director = require('director.js');
