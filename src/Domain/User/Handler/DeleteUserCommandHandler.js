@@ -5,6 +5,11 @@ import {NotFoundException} from "../Exception/NotFoundException";
 import {CanNotDeleteUserException} from "../Exception/CanNotDeleteUserException";
 
 export class DeleteUserCommandHandler {
+    /**
+     * Excuting command
+     * @param command
+     * @returns {Promise}
+     */
     execute(command) {
         return new Promise((resolve, reject) => {
             if (command instanceof DeleteUserCommand) {
@@ -25,6 +30,10 @@ export class DeleteUserCommandHandler {
         });
     }
 
+    /**
+     * Delete user
+     * @returns {Query}
+     */
     deleteUser() {
         return UserDB.findByIdAndRemove(this.command.userId);
     }

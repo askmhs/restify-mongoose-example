@@ -1,7 +1,10 @@
-import mongoose from './../../../../config/datasource';
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
+/**
+ * Defining schema
+ */
 const jurusan = new Schema({
     name: {
         type: String,
@@ -18,5 +21,12 @@ const jurusan = new Schema({
     }
 });
 
+/**
+ * Creating collection
+ */
 const Jurusan = mongoose.model('Jurusan', jurusan);
+
+/**
+ * Exporting module
+ */
 export default Jurusan;

@@ -1,9 +1,15 @@
 export class User {
-    constructor(name, birthDate, address, phone, jurusan) {
+    /**
+     * Constructor
+     * @param name
+     * @param address
+     * @param phone
+     * @param jurusan
+     */
+    constructor(name, address, phone, jurusan) {
         this.name = name;
-        this.birthDate = birthDate;
-        this.address = address;
         this.phone = phone;
+        this.address = address;
         this.jurusan = jurusan;
     }
 }

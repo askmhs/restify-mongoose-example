@@ -6,6 +6,12 @@ import {NotFoundException} from "../Exception/NotFoundException";
 import {CanNotUpdateUserException} from "../Exception/CanNotUpdateUserException";
 
 export class UpdateUserCommandHandler {
+
+    /**
+     * Executing command
+     * @param command
+     * @returns {Promise}
+     */
     execute(command) {
         return new Promise((resolve, reject) => {
             if (command instanceof UpdateUserCommand) {
@@ -26,6 +32,10 @@ export class UpdateUserCommandHandler {
         });
     }
 
+    /**
+     * Update user
+     * @returns {Query}
+     */
     updateUser() {
         /**
          * Remove keys with null value inside the object

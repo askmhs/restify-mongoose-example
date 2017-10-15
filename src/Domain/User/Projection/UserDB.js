@@ -1,13 +1,13 @@
-import mongoose from './../../../../config/datasource';
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
+/**
+ * Defining schema
+ * @type {Schema|*}
+ */
 let userDB = new Schema({
     name: {
-        type: String,
-        required: true
-    },
-    birthDate: {
         type: String,
         required: true
     },
@@ -33,5 +33,12 @@ let userDB = new Schema({
     }
 });
 
+/**
+ * Creating collection
+ */
 let UserDB = mongoose.model('UserDB', userDB);
+
+/**
+ * Exporting module
+ */
 export default UserDB;

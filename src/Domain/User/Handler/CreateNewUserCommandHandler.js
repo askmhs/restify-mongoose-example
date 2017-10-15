@@ -10,9 +10,6 @@ export class CreateNewUserCommandHandler {
      * @returns {Promise}
      */
     execute(command) {
-        /**
-         * Assign command
-         */
         this.command = command;
 
         return new Promise((resolve, reject) => {

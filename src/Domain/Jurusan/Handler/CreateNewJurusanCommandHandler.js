@@ -3,7 +3,12 @@ import {InvalidException} from "../Exception/InvalidException";
 import {CreateNewJurusanCommand} from "../Command/CreateNewJurusanCommand";
 import {CanNotCreateNewJurusanException} from "../Exception/CanNotCreateNewJurusanException";
 
-export class CreateNewJurµusanCommandHandler {
+export class CreateNewJurusanCommandHandler {
+    /**
+     * Executing command
+     * @param command
+     * @returns {Promise}
+     */
     execute(command) {
         return new Promise((resolve, reject) => {
             if (command instanceof CreateNewJurusanCommand) {
@@ -13,7 +18,7 @@ export class CreateNewJurµusanCommandHandler {
                     resolve(created);
                 }).catch((errCreated) => {
                     console.log(errCreated);
-                    reject(new CanNotCreateNewJµµurusanException('An error occurred while creating new jurusan data!'));
+                    reject(new CanNotCreateNewJurusanException('An error occurred while creating new jurusan data!'));
                 });
             } else {
                 throw new InvalidException('command must be instanceof CreateNewJurusanCommand!');
@@ -21,6 +26,9 @@ export class CreateNewJurµusanCommandHandler {
         });
     }
 
+    /**
+     * Create new jurusan
+     */
     createJurusan() {
         return JurusanDB.create(this.command.jurusan);
     }
