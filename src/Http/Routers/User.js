@@ -74,15 +74,13 @@ module.exports = (server) => {
     /**
      * Delete user
      */
-    server.get('/user/delete', (req, res) => {
-        console.log('UserID = ' + req.query.userId);
-
+    server.post('/user/delete', (req, res) => {
         DeleteUserCommand.prototype.ID = 'deleteUserCommand';
 
         promiseBus.registry.register(DeleteUserCommand.prototype.ID, new DeleteUserCommandHandler());
         const bus = new Decorator(promiseBus);
 
-        bus.handle(new DeleteUserCommand(req.query.userId)).then((result) => {
+        bus.handle(new DeleteUserCommand(req.body.userId)).then((result) => {
             SuccessResponse(res, 'Successfully deleted user!', result);
         }).catch((errResult) => {
             InternalServerErrorResponse(res, errResult);

@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="755047a4-1a02-42b8-86e9-94707b3e7aaf" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/datasource.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Domain/User/Handler/GetAllUserCommandHandler.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/Jurusan/Handler/CreateNewJurusanCommandHandler.js" afterPath="$PROJECT_DIR$/src/Domain/Jurusan/Handler/CreateNewJurusanCommandHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/Jurusan/Projection/JurusanDB.js" afterPath="$PROJECT_DIR$/src/Domain/Jurusan/Projection/JurusanDB.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/User/Handler/CreateNewUserCommandHandler.js" afterPath="$PROJECT_DIR$/src/Domain/User/Handler/CreateNewUserCommandHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/User/Handler/DeleteUserCommandHandler.js" afterPath="$PROJECT_DIR$/src/Domain/User/Handler/DeleteUserCommandHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/User/Handler/UpdateUserCommandHandler.js" afterPath="$PROJECT_DIR$/src/Domain/User/Handler/UpdateUserCommandHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/User/Model/User.js" afterPath="$PROJECT_DIR$/src/Domain/User/Model/User.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/User/Projection/UserDB.js" afterPath="$PROJECT_DIR$/src/Domain/User/Projection/UserDB.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Http/Responses/BadRequestResponse.js" afterPath="$PROJECT_DIR$/src/Http/Responses/BadRequestResponse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Http/Responses/InternalServerErrorResponse.js" afterPath="$PROJECT_DIR$/src/Http/Responses/InternalServerErrorResponse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Http/Responses/SuccessResponse.js" afterPath="$PROJECT_DIR$/src/Http/Responses/SuccessResponse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Http/Routers/Jurusan.js" afterPath="$PROJECT_DIR$/src/Http/Routers/Jurusan.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Http/Routers/User.js" afterPath="$PROJECT_DIR$/src/Http/Routers/User.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,22 +44,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Http/Routers/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="57" lean-forward="false" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
-              <folding />
+            <state relative-caret-position="281">
+              <caret line="87" column="7" lean-forward="true" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Jurusan.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Jurusan.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Http/Routers/Jurusan.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-              <folding />
+            <state relative-caret-position="515">
+              <caret line="45" column="2" lean-forward="true" selection-start-line="45" selection-start-column="2" selection-end-line="45" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -160,8 +148,8 @@
         <option value="$PROJECT_DIR$/src/Domain/Jurusan/Handler/GetAllJurusanCommandHandler.js" />
         <option value="$PROJECT_DIR$/src/Domain/User/Projection/UserDB.js" />
         <option value="$PROJECT_DIR$/src/Domain/User/Model/User.js" />
-        <option value="$PROJECT_DIR$/src/Http/Routers/User.js" />
         <option value="$PROJECT_DIR$/src/Http/Routers/Jurusan.js" />
+        <option value="$PROJECT_DIR$/src/Http/Routers/User.js" />
       </list>
     </option>
   </component>
@@ -460,16 +448,15 @@
       <workItem from="1507850209856" duration="8000" />
       <workItem from="1508022644149" duration="239000" />
       <workItem from="1508023043444" duration="303000" />
-      <workItem from="1508036212963" duration="2182000" />
+      <workItem from="1508036212963" duration="2727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67715000" />
+    <option name="totallyTimeSpent" value="68260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="708" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -480,7 +467,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7569331" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45015576" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32087228" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -859,19 +846,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Http/Routers/User.js">
+    <entry file="file://$PROJECT_DIR$/src/Http/Routers/Jurusan.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="57" lean-forward="false" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
-          <folding />
+        <state relative-caret-position="515">
+          <caret line="45" column="2" lean-forward="true" selection-start-line="45" selection-start-column="2" selection-end-line="45" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Http/Routers/Jurusan.js">
+    <entry file="file://$PROJECT_DIR$/src/Http/Routers/User.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="281">
+          <caret line="87" column="7" lean-forward="true" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
