@@ -1,53 +1,45 @@
-import restify from 'restify';
-import promise from 'bluebird';
-import mongoose from 'mongoose';
+import restify from "restify";
+import mongoose, { mongo } from "mongoose";
 
 /**
  * Creating server
- * @type {*|Server}
  */
 const server = restify.createServer({
-    name: 'restify-mongoose-example'
+    name: "restify-mongoose-example",
+    ignoreTrailingSlash: true
+});
+
+require("dotenv").config({
+    path: "./.env"
 });
 
 /**
- * Configure restify parser
+ * Attempt to connect to MongoDB server
  */
-server.use(restify.plugins.acceptParser(server.acceptable));
-server.use(restify.plugins.queryParser());
-server.use(restify.plugins.bodyParser());
-
-/**
- * Set mongoose default promise
- */
-mongoose.Promise = promise;
-mongoose.Promise = global.Promise;
-
-/**
- * Connecting to DB
- */
-mongoose.connect('mongodb://127.0.0.1:27017/restify-mongoose-example', {
-    useMongoClient: true
+mongoose.connect(`${process.env.DB_HOST}/${process.env.DB_NAME}`, {
+    useNewUrlParser: true
 }).then(() => {
-    console.log('Successfully connected to DB!');
-}, (err) => {
-    throw new Error(err);
+    console.log("Database connection established successfully.");
+}).catch(err => {
+    throw err;
 });
 
 /**
- * Calling router
+ * Configure server parser
  */
-require('./src/Http/Routers/User')(server);
-require('./src/Http/Routers/Jurusan')(server);
+server.use(restify.plugins.bodyParser());
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.acceptParser(server.acceptable));
+
+/**
+ * Register routers
+ */
+const router = require("./app/Http/Routes/index");
+router.applyRoutes(server);
 
 /**
  * Starting server
  */
-server.listen(8000, () => {
-    console.log('%s listening at %s', server.name, server.url);
+server.listen(3000, () => {
+    console.log("%s starting at %s", server.name, server.url);
 });
-
-/**
- * Exporting module
- */
-export default server;
